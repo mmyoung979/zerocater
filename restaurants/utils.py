@@ -56,7 +56,7 @@ def is_vendor_available(vendor_id, date_time):
 		after = time(meal) + timedelta(minutes=10)
 
 		# If within blackout period with no other drivers, vendor is not available
-		if drivers > 0:
+		if drivers > 1:
 			return True
 		if (date_time > before and date_time < after):
 			return False
