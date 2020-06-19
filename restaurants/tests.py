@@ -25,6 +25,7 @@ class VendorTestCase(TestCase):
     def test_unavailable_vendor(self):
         self.assertEqual(is_vendor_available(1, self.time("2017-01-01 14:30:00")), False)
         self.assertEqual(is_vendor_available(1, self.time("2017-01-02 14:30:00")), True)
+        self.assertEqual(is_vendor_available(2, self.time("2017-01-01 13:30:00")), True)
 
     def test_vendor_id_existence(self):
         with self.assertRaises(ValueError):
