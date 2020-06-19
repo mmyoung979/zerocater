@@ -1,0 +1,71 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <!-- Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Site Title -->
+    <title>ZeroCater - Matthew Young Code Submission</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+
+  <body>
+    <nav class="navbar navbar-light bg-light">
+      <span class="navbar-brand mb-0 h1">Matthew Young</span>
+    </nav>
+
+    <div class="container mt-3">
+      <h1 class="text-center">ZeroCater Code Submission</h1>
+      <form action="{% url 'home' %}" method="POST">
+      {% csrf_token %}
+        <div class="row text-center">
+          <div class="col-12">
+            {% if form.vendor_id.errors %}
+              <div class='alert alert-danger'>{{ form.vendor_id.errors.as_text }}</div>
+            {% endif %}
+            <label for="vendor_id" class="active">Vendor ID</label><br>
+            {{ form.vendor_id }}
+          </div>
+          <div class="col-12 mt-3">
+            {% if form.date.errors %}
+              <div class='alert alert-danger'>{{ form.date.errors.as_text }}</div>
+            {% endif %}
+            <label for="date" class="active">Select date and time</label><br>
+            {{ form.date }}
+          </div>
+          <div class="col-12 text-center mt-3">
+            <button class="btn btn-primary blue solid cd-btn" type="submit">Check Availability</button>
+          </div>
+        </div>
+        {% if form.errors %}
+          {% for error in form.non_field_errors %}
+            <div class='alert alert-error'>
+              <strong>{{ error|escape }}</strong>
+            </div>
+          {% endfor %}
+        {% endif %}
+      </form>
+
+      {% if availability == "Vendor is available" %}
+        <div class="text-center alert alert-success mt-3"></p>{{ availability }}</p></div>
+      {% elif availability == "Vendor is not available" %}
+        <div class="text-center alert alert-danger mt-3"></p>{{ availability }}</p></div>
+      {% endif %}
+      {% if error %}
+        <div class="text-center"></p>{{ error }}</p></div>
+      {% endif %}
+      
+    </div>
+  </body>
+
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</html>
