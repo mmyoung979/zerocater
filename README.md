@@ -18,8 +18,9 @@ Since this challenge really only required 10 or so lines of Python code, it was 
 3. Deploying on a live URL
 
 ## Files To Care About
-1. restaurants/utils.py
-2. restaurants/tests.py
+1. https://github.com/mmyoung979/zerocater/blob/master/restaurants/utils.py
+2. https://github.com/mmyoung979/zerocater/blob/master/restaurants/tests.py
+
 
 ## Top 3 To Do With More Time
 1. Implement PostgreSQL
