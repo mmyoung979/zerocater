@@ -28,5 +28,5 @@ Since this challenge really only required 10 or so lines of Python code, it was 
 3. Create more robust UI
 
 ## Conclusion
-Thank you for considering me. ZeroCater is my top choice to work at right now.
+Thank you for considering me.
 - Matt Young
